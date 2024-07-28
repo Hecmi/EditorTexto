@@ -246,7 +246,7 @@ void MainWindow::closeEvent(QCloseEvent *event)
             this,
             tr("Confirmar"),
             tr("Hay cambios sin guardar. ¿Deseas guardar los cambios antes de salir?"),
-            QMessageBox::Yes | QMessageBox::No
+            QMessageBox::Yes | QMessageBox::No | QMessageBox::Cancel
         );
 
         //Sí la respuesta del diálogo es positiva, entonces verificar si es posible
@@ -254,12 +254,21 @@ void MainWindow::closeEvent(QCloseEvent *event)
         if (respuesta == QMessageBox::Yes) {
 
             //Sí se guardó correctamente, cerrar la ventana
-            if (on_guardarArchivo_click()) event->accept();
-
+            if (on_guardarArchivo_click()) {
+                event->accept();
+            } else {
+                event->ignore();
+            }
         }
+        else if (respuesta == QMessageBox::No) {
+            event->accept();
+        }
+        else if (respuesta == QMessageBox::Cancel) {
+            event->ignore();
+        }
+    } else {
+        event->accept();
     }
-
-    event->accept();
 }
 
 MainWindow::~MainWindow()
