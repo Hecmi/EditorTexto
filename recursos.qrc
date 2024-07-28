@@ -1,5 +1,5 @@
 <RCC>
-    <qresource prefix="/imagenes">
-        <file>imagenes/notepad.ico</file>
+    <qresource prefix="/iconos">
+        <file>notepad.ico</file>
     </qresource>
 </RCC>

@@ -28,6 +28,8 @@ MainWindow::MainWindow(QWidget *parent)
     connect(ui->mbAumentarZoom, &QAction::triggered, this, &MainWindow::zoomIn);
     connect(ui->mbDisminuirZoom, &QAction::triggered, this, &MainWindow::zoomOut);
 
+    connect(ui->pteEditor, &QPlainTextEdit::textChanged, this, &MainWindow::on_editorArchivo_textChanged);
+
     //Eventos para combinación de teclas
     QShortcut *shortcut_guardar = new QShortcut(QKeySequence("Ctrl+S"), this);
     QShortcut *shortcut_guardarComo = new QShortcut(QKeySequence("Ctrl+Shift+S"), this);
@@ -44,8 +46,6 @@ MainWindow::MainWindow(QWidget *parent)
 
     connect(shortcut_aumentarZoom, &QShortcut::activated, this, &MainWindow::zoomIn);
     connect(shortcut_disminuirZoom, &QShortcut::activated, this, &MainWindow::zoomOut);
-
-    connect(ui->pteEditor, &QPlainTextEdit::textChanged, this, &MainWindow::on_editorArchivo_textChanged);
 
     ui->pteEditor->installEventFilter(this);
 
@@ -118,14 +118,14 @@ void MainWindow::on_nuevoArchivo_click(){
 
         //Crear el cuadro del diálogo
         QMessageBox::StandardButton respuesta;
-        respuesta = QMessageBox::question(this, "Guardar archivo",
+        respuesta = QMessageBox::question(this, "Editor de archivos",
                                       "¿Desea guardar el archivo antes de continuar?",
                                       QMessageBox::Yes | QMessageBox::No);
 
         //Sí la respuesta del diálogo es positiva, entonces verificar si es posible
         //reiniciar el contenido y la ruta del archivo que se está modificando
         if (respuesta == QMessageBox::Yes) {
-            puede_reiniciar = on_guardarArchivo_click();
+            puede_reiniciar = guardar_archivo(ultima_ruta_archivo);
         }
     }
 
@@ -146,6 +146,22 @@ void MainWindow::on_nuevoArchivo_click(){
 }
 
 void MainWindow::on_seleccionarArchivo_click() {
+    //Verificar si el archivo ha sido modificado para así preguntar al usuario si desea
+    //guardar antes de abrir otro archivo
+    if (archivo_modificado) {
+        QMessageBox::StandardButton respuesta = QMessageBox::question(
+            this,
+            tr("Confirmar"),
+            tr("Hay cambios sin guardar. ¿Deseas guardar los cambios antes de abrir otro archivo?"),
+            QMessageBox::Yes | QMessageBox::No | QMessageBox::Cancel
+        );
+
+        //Sí la respuesta del diálogo es positiva, entonces guardar el archivo,
+        if (respuesta == QMessageBox::Yes) {
+            guardar_archivo(ultima_ruta_archivo);
+        }
+    }
+
     //Abrir un cuadro de diálogo para seleccionar un archivo
     QString ruta_archivo = QFileDialog::getOpenFileName(this, tr("Abrir archivo"), "", tr("Files (*.*)"));
 
@@ -171,6 +187,7 @@ void MainWindow::on_seleccionarArchivo_click() {
             //Cerrar el archivo
             file.close();
 
+            archivo_modificado = false;
             cargar_titulo_nombreArchivo(ultima_ruta_archivo);
 
             //Volver a activar el evento
@@ -181,29 +198,25 @@ void MainWindow::on_seleccionarArchivo_click() {
     }
 }
 
-bool MainWindow::on_guardarComo_click() {
-    //Abrir un cuadro de diálogo para guardar el archivo
-    QString ruta_archivo = QFileDialog::getSaveFileName(this, tr("Guardar archivo"), "", tr("Text Files (*.txt);;All Files (*)"));
-
-    //Sí se seleccionó una ruta valida, asignarla a la variable para la posterior modificación
-    if (!ruta_archivo.isEmpty()) {
-        ultima_ruta_archivo = ruta_archivo;
-        cargar_titulo_nombreArchivo(ultima_ruta_archivo);
-    } else {
-        qDebug() << "No se seleccionó ningún archivo.";
-        return false;
-    }
-
-    return guardar_archivo(ultima_ruta_archivo);
+void MainWindow::on_guardarComo_click() {
+    //Establecer la ruta del archivo como vacía para forzar la apertura
+    //del cuadro de diálogo
+    guardar_archivo("");
 }
 
-bool MainWindow::on_guardarArchivo_click()
+void MainWindow::on_guardarArchivo_click()
 {
+    //Envíar como parámetro la última ruta de archivo abierta
+    guardar_archivo(ultima_ruta_archivo);
+}
+
+bool MainWindow::guardar_archivo(QString ruta_archivo){
     //Comprobar si ya anteriormente se ha seleccionado un archivo
-    if (ultima_ruta_archivo.isEmpty()) {
+    if (ruta_archivo.isEmpty()) {
 
         //Si no se ha seleccionado un archivo, abrir un cuadro de diálogo para guardar el archivo
-        QString ruta_archivo = QFileDialog::getSaveFileName(this, tr("Guardar archivo"), "", tr("Text Files (*.txt);;All Files (*)"));
+        ruta_archivo = QFileDialog::getSaveFileName(this, tr("Guardar archivo"),
+                                                            "", tr("Text Files (*.txt);;All Files (*)"));
 
         if (!ruta_archivo.isEmpty()) {
             ultima_ruta_archivo = ruta_archivo;
@@ -214,12 +227,8 @@ bool MainWindow::on_guardarArchivo_click()
         }
     }
 
-    return guardar_archivo(ultima_ruta_archivo);
-}
-
-bool MainWindow::guardar_archivo(QString ruta){
     //Escribir el contenido del QPlainTextEdit en el archivo
-    QFile file(ruta);
+    QFile file(ultima_ruta_archivo);
 
     //Abrir el archivo en modo de escritura
     if (file.open(QIODevice::WriteOnly | QIODevice::Text)) {
@@ -263,7 +272,7 @@ void MainWindow::closeEvent(QCloseEvent *event)
 
         QMessageBox::StandardButton respuesta = QMessageBox::question(
             this,
-            tr("Confirmar"),
+            tr("Editor de archivos"),
             tr("Hay cambios sin guardar. ¿Deseas guardar los cambios antes de salir?"),
             QMessageBox::Yes | QMessageBox::No | QMessageBox::Cancel
         );
@@ -273,7 +282,7 @@ void MainWindow::closeEvent(QCloseEvent *event)
         if (respuesta == QMessageBox::Yes) {
 
             //Sí se guardó correctamente, cerrar la ventana
-            if (on_guardarArchivo_click()) {
+            if (guardar_archivo(ultima_ruta_archivo)) {
                 event->accept();
             } else {
                 event->ignore();

@@ -25,14 +25,14 @@ public:
 private slots:
     void on_nuevoArchivo_click();
     void on_seleccionarArchivo_click();
-    bool on_guardarArchivo_click();
-    bool on_guardarComo_click();
+    void on_guardarArchivo_click();
+    void on_guardarComo_click();
     void on_pteEditor_input();
 
     void on_editorArchivo_textChanged();
 
 private:
-    bool guardar_archivo(QString ruta);
+    bool guardar_archivo(QString ruta_archivo);
     void cargar_titulo_nombreArchivo(QString ruta);
     void zoomIn();
     void zoomOut();

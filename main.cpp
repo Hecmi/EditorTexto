@@ -20,7 +20,7 @@ int main(int argc, char *argv[])
 
     MainWindow w;
 
-    QIcon windowIcon(":/imagenes/imagenes/notepad.ico");
+    QIcon windowIcon(":/iconos/notepad.ico");
     w.setWindowIcon(windowIcon);
 
     w.show();
