@@ -1,0 +1,9 @@
+C:/Users/LUIS CASANOVA/Dropbox (Anterior)/Mi PC (DESKTOP-P50TEI6)/Documents/EditorArchivos/build/Desktop_Qt_6_7_2_MinGW_64_bit-Release/CMakeFiles/EditorArchivos.dir
+C:/Users/LUIS CASANOVA/Dropbox (Anterior)/Mi PC (DESKTOP-P50TEI6)/Documents/EditorArchivos/build/Desktop_Qt_6_7_2_MinGW_64_bit-Release/CMakeFiles/edit_cache.dir
+C:/Users/LUIS CASANOVA/Dropbox (Anterior)/Mi PC (DESKTOP-P50TEI6)/Documents/EditorArchivos/build/Desktop_Qt_6_7_2_MinGW_64_bit-Release/CMakeFiles/rebuild_cache.dir
+C:/Users/LUIS CASANOVA/Dropbox (Anterior)/Mi PC (DESKTOP-P50TEI6)/Documents/EditorArchivos/build/Desktop_Qt_6_7_2_MinGW_64_bit-Release/CMakeFiles/list_install_components.dir
+C:/Users/LUIS CASANOVA/Dropbox (Anterior)/Mi PC (DESKTOP-P50TEI6)/Documents/EditorArchivos/build/Desktop_Qt_6_7_2_MinGW_64_bit-Release/CMakeFiles/install.dir
+C:/Users/LUIS CASANOVA/Dropbox (Anterior)/Mi PC (DESKTOP-P50TEI6)/Documents/EditorArchivos/build/Desktop_Qt_6_7_2_MinGW_64_bit-Release/CMakeFiles/install/local.dir
+C:/Users/LUIS CASANOVA/Dropbox (Anterior)/Mi PC (DESKTOP-P50TEI6)/Documents/EditorArchivos/build/Desktop_Qt_6_7_2_MinGW_64_bit-Release/CMakeFiles/install/strip.dir
+C:/Users/LUIS CASANOVA/Dropbox (Anterior)/Mi PC (DESKTOP-P50TEI6)/Documents/EditorArchivos/build/Desktop_Qt_6_7_2_MinGW_64_bit-Release/CMakeFiles/EditorArchivos_autogen_timestamp_deps.dir
+C:/Users/LUIS CASANOVA/Dropbox (Anterior)/Mi PC (DESKTOP-P50TEI6)/Documents/EditorArchivos/build/Desktop_Qt_6_7_2_MinGW_64_bit-Release/CMakeFiles/EditorArchivos_autogen.dir

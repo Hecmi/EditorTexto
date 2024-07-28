@@ -1,0 +1,24 @@
+# ninja log v6
+1372	9364	7438101489925787	CMakeFiles/EditorArchivos.dir/EditorArchivos_autogen/mocs_compilation.cpp.obj	3b77ed0b7e9669f7
+216	634	7438117688147161	C:/Users/LUIS CASANOVA/Dropbox (Anterior)/Mi PC (DESKTOP-P50TEI6)/Documents/EditorArchivos/build/Desktop_Qt_6_7_2_MinGW_64_bit-Debug/EditorArchivos_autogen/timestamp	ccb4dd3fb48e0a35
+48	202	7438119642353385	C:/Users/LUIS CASANOVA/Dropbox (Anterior)/Mi PC (DESKTOP-P50TEI6)/Documents/EditorArchivos/build/Desktop_Qt_6_7_2_MinGW_64_bit-Debug/CMakeFiles/cmake.verify_globs	8a354ed7c7f4fcba
+216	634	7438117688147161	C:/Users/LUIS CASANOVA/Dropbox (Anterior)/Mi PC (DESKTOP-P50TEI6)/Documents/EditorArchivos/build/Desktop_Qt_6_7_2_MinGW_64_bit-Debug/EditorArchivos_autogen/mocs_compilation.cpp	ccb4dd3fb48e0a35
+216	634	7438117688147161	EditorArchivos_autogen/timestamp	ccb4dd3fb48e0a35
+216	634	7438117688147161	EditorArchivos_autogen/mocs_compilation.cpp	ccb4dd3fb48e0a35
+835	8796	7438117694337140	CMakeFiles/EditorArchivos.dir/main.cpp.obj	26b1f847f57da30f
+842	11638	7438117694397138	CMakeFiles/EditorArchivos.dir/mainwindow.cpp.obj	717b535e0732f672
+11639	12409	7438117802372373	EditorArchivos.exe	bbfd513931f72acf
+300	2491	7438119661843362	build.ninja	9ff80d51c829e0c7
+636	835	7438117694007127	EditorArchivos_autogen/EWIEGA46WW/qrc_recursos.cpp	b298a34dcf5f6bc2
+636	835	7438117694007127	C:/Users/LUIS CASANOVA/Dropbox (Anterior)/Mi PC (DESKTOP-P50TEI6)/Documents/EditorArchivos/build/Desktop_Qt_6_7_2_MinGW_64_bit-Debug/EditorArchivos_autogen/EWIEGA46WW/qrc_recursos.cpp	b298a34dcf5f6bc2
+847	1290	7438117694457136	CMakeFiles/EditorArchivos.dir/EditorArchivos_autogen/EWIEGA46WW/qrc_recursos.cpp.obj	ba8d5ff974c8f58c
+203	2529	7438119661843362	build.ninja	9ff80d51c829e0c7
+48	231	7438119666923353	C:/Users/LUIS CASANOVA/Dropbox (Anterior)/Mi PC (DESKTOP-P50TEI6)/Documents/EditorArchivos/build/Desktop_Qt_6_7_2_MinGW_64_bit-Debug/CMakeFiles/cmake.verify_globs	8a354ed7c7f4fcba
+262	949	7438119669063374	EditorArchivos_autogen/timestamp	ccb4dd3fb48e0a35
+262	949	7438119669063374	EditorArchivos_autogen/mocs_compilation.cpp	ccb4dd3fb48e0a35
+262	949	7438119669063374	C:/Users/LUIS CASANOVA/Dropbox (Anterior)/Mi PC (DESKTOP-P50TEI6)/Documents/EditorArchivos/build/Desktop_Qt_6_7_2_MinGW_64_bit-Debug/EditorArchivos_autogen/timestamp	ccb4dd3fb48e0a35
+262	949	7438119669063374	C:/Users/LUIS CASANOVA/Dropbox (Anterior)/Mi PC (DESKTOP-P50TEI6)/Documents/EditorArchivos/build/Desktop_Qt_6_7_2_MinGW_64_bit-Debug/EditorArchivos_autogen/mocs_compilation.cpp	ccb4dd3fb48e0a35
+951	8201	7438119675953372	CMakeFiles/EditorArchivos.dir/main.cpp.obj	26b1f847f57da30f
+960	10227	7438119676053408	CMakeFiles/EditorArchivos.dir/mainwindow.cpp.obj	717b535e0732f672
+10227	10698	7438119768719232	EditorArchivos.exe	bbfd513931f72acf
+28	157	7438125290164915	C:/Users/LUIS CASANOVA/Dropbox (Anterior)/Mi PC (DESKTOP-P50TEI6)/Documents/EditorArchivos/build/Desktop_Qt_6_7_2_MinGW_64_bit-Debug/CMakeFiles/cmake.verify_globs	8a354ed7c7f4fcba

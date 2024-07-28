@@ -1,0 +1,147 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ui version="4.0">
+ <class>MainWindow</class>
+ <widget class="QMainWindow" name="MainWindow">
+  <property name="geometry">
+   <rect>
+    <x>0</x>
+    <y>0</y>
+    <width>674</width>
+    <height>492</height>
+   </rect>
+  </property>
+  <property name="sizePolicy">
+   <sizepolicy hsizetype="Maximum" vsizetype="Maximum">
+    <horstretch>0</horstretch>
+    <verstretch>0</verstretch>
+   </sizepolicy>
+  </property>
+  <property name="minimumSize">
+   <size>
+    <width>555</width>
+    <height>0</height>
+   </size>
+  </property>
+  <property name="windowTitle">
+   <string>MainWindow</string>
+  </property>
+  <widget class="QWidget" name="wCentralWidget">
+   <property name="sizePolicy">
+    <sizepolicy hsizetype="Expanding" vsizetype="Expanding">
+     <horstretch>0</horstretch>
+     <verstretch>0</verstretch>
+    </sizepolicy>
+   </property>
+   <layout class="QGridLayout" name="gridLayout">
+    <property name="leftMargin">
+     <number>0</number>
+    </property>
+    <property name="topMargin">
+     <number>0</number>
+    </property>
+    <property name="rightMargin">
+     <number>0</number>
+    </property>
+    <property name="bottomMargin">
+     <number>0</number>
+    </property>
+    <item row="0" column="0">
+     <layout class="QVBoxLayout" name="verticalLayout">
+      <property name="spacing">
+       <number>0</number>
+      </property>
+      <item>
+       <widget class="Line" name="line">
+        <property name="orientation">
+         <enum>Qt::Orientation::Horizontal</enum>
+        </property>
+       </widget>
+      </item>
+      <item>
+       <widget class="QPlainTextEdit" name="pteEditor">
+        <property name="sizePolicy">
+         <sizepolicy hsizetype="Expanding" vsizetype="Expanding">
+          <horstretch>0</horstretch>
+          <verstretch>0</verstretch>
+         </sizepolicy>
+        </property>
+        <property name="font">
+         <font>
+          <pointsize>11</pointsize>
+         </font>
+        </property>
+        <property name="autoFillBackground">
+         <bool>true</bool>
+        </property>
+        <property name="lineWidth">
+         <number>0</number>
+        </property>
+       </widget>
+      </item>
+     </layout>
+    </item>
+   </layout>
+  </widget>
+  <widget class="QMenuBar" name="menubar">
+   <property name="geometry">
+    <rect>
+     <x>0</x>
+     <y>0</y>
+     <width>674</width>
+     <height>22</height>
+    </rect>
+   </property>
+   <widget class="QMenu" name="mbArchivo">
+    <property name="title">
+     <string>Archivo</string>
+    </property>
+    <addaction name="mbNuevoArchivo"/>
+    <addaction name="mbSeleccionarArchivo"/>
+    <addaction name="mbGuardarArchivo"/>
+    <addaction name="mbGuardarComo"/>
+   </widget>
+   <widget class="QMenu" name="menuZoom">
+    <property name="title">
+     <string>Zoom</string>
+    </property>
+    <addaction name="mbAumentarZoom"/>
+    <addaction name="mbDisminuirZoom"/>
+   </widget>
+   <addaction name="mbArchivo"/>
+   <addaction name="menuZoom"/>
+  </widget>
+  <widget class="QStatusBar" name="statusbar"/>
+  <action name="mbSeleccionarArchivo">
+   <property name="text">
+    <string>Abrir                                   Ctrl + O</string>
+   </property>
+  </action>
+  <action name="mbGuardarArchivo">
+   <property name="text">
+    <string>Guardar                              Ctrl + S</string>
+   </property>
+  </action>
+  <action name="mbGuardarComo">
+   <property name="text">
+    <string>Guardar como...                Ctrl + Shift + S</string>
+   </property>
+  </action>
+  <action name="mbNuevoArchivo">
+   <property name="text">
+    <string>Nuevo archivo                  Ctrl + N</string>
+   </property>
+  </action>
+  <action name="mbAumentarZoom">
+   <property name="text">
+    <string>Aumentar</string>
+   </property>
+  </action>
+  <action name="mbDisminuirZoom">
+   <property name="text">
+    <string>Disminuir</string>
+   </property>
+  </action>
+ </widget>
+ <resources/>
+ <connections/>
+</ui>

@@ -1,0 +1,79 @@
+{
+	"configurations" : 
+	[
+		{
+			"directories" : 
+			[
+				{
+					"build" : ".",
+					"hasInstallRule" : true,
+					"jsonFile" : "directory-.-Debug-023047a658dab040fcd4.json",
+					"minimumCMakeVersion" : 
+					{
+						"string" : "3.16"
+					},
+					"projectIndex" : 0,
+					"source" : ".",
+					"targetIndexes" : 
+					[
+						0,
+						1,
+						2
+					]
+				}
+			],
+			"name" : "Debug",
+			"projects" : 
+			[
+				{
+					"directoryIndexes" : 
+					[
+						0
+					],
+					"name" : "EditorArchivos",
+					"targetIndexes" : 
+					[
+						0,
+						1,
+						2
+					]
+				}
+			],
+			"targets" : 
+			[
+				{
+					"directoryIndex" : 0,
+					"id" : "EditorArchivos::@6890427a1f51a3e7e1df",
+					"jsonFile" : "target-EditorArchivos-Debug-260795fd509b0ae91b9b.json",
+					"name" : "EditorArchivos",
+					"projectIndex" : 0
+				},
+				{
+					"directoryIndex" : 0,
+					"id" : "EditorArchivos_autogen::@6890427a1f51a3e7e1df",
+					"jsonFile" : "target-EditorArchivos_autogen-Debug-8848fc8857c17e2ae2c3.json",
+					"name" : "EditorArchivos_autogen",
+					"projectIndex" : 0
+				},
+				{
+					"directoryIndex" : 0,
+					"id" : "EditorArchivos_autogen_timestamp_deps::@6890427a1f51a3e7e1df",
+					"jsonFile" : "target-EditorArchivos_autogen_timestamp_deps-Debug-ec10a91487e9fc411b03.json",
+					"name" : "EditorArchivos_autogen_timestamp_deps",
+					"projectIndex" : 0
+				}
+			]
+		}
+	],
+	"kind" : "codemodel",
+	"paths" : 
+	{
+		"build" : "C:/Users/LUIS CASANOVA/Dropbox (Anterior)/Mi PC (DESKTOP-P50TEI6)/Documents/EditorArchivos/build/Desktop_Qt_6_7_2_MinGW_64_bit-Debug",
+		"source" : "C:/Users/LUIS CASANOVA/Dropbox (Anterior)/Mi PC (DESKTOP-P50TEI6)/Documents/EditorArchivos"
+	},
+	"version" : 
+	{
+		"major" : 2,
+		"minor" : 7
+	}
+}
