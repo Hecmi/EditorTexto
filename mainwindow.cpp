@@ -1,6 +1,5 @@
 #include "mainwindow.h"
 #include "./ui_mainwindow.h"
-#include "./plaintexteditormod.h"
 #include "qpushbutton.h"
 #include "qshortcut.h"
 #include "qfiledialog.h"
