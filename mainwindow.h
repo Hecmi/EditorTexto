@@ -27,7 +27,7 @@ private slots:
     void on_seleccionarArchivo_click();
     bool on_guardarArchivo_click();
     bool on_guardarComo_click();
-    void on_pteEditor_click();
+    void on_pteEditor_input();
 
     void on_editorArchivo_textChanged();
 

@@ -59,7 +59,7 @@ bool MainWindow::eventFilter(QObject *obj, QEvent *event)
     //(un click o ingreso de texto desde el teclado) redefinir el índice de fila y columna
     if (obj == ui->pteEditor && event->type() == QEvent::InputMethodQuery)
     {
-        on_pteEditor_click();
+        on_pteEditor_input();
         return true;
     }
 
@@ -240,7 +240,7 @@ bool MainWindow::guardar_archivo(QString ruta){
     return false;
 }
 
-void MainWindow::on_pteEditor_click()
+void MainWindow::on_pteEditor_input()
 {
     //Obtener la posición del clic en el editor de texto plano
     //QPoint pos = ui->pteEditor->viewport()->mapFromGlobal(QCursor::pos());
