@@ -12,9 +12,10 @@ MainWindow::MainWindow(QWidget *parent)
     , tamanio_texto(12)
     , incremento_texto(2)
     , archivo_modificado(false)
+    , nombre_archivo("Sín título")
 {
     ui->setupUi(this);
-    this->setWindowTitle("Editor de texto");
+    setWindowTitle(tr("%1: Editor de texto").arg(nombre_archivo));
 
     //Estilos de los widgets
     ui->pteEditor->setStyleSheet("QPlainTextEdit { border: none; }");
@@ -83,6 +84,8 @@ void MainWindow::wheelEvent(QWheelEvent *event)
 }
 
 void MainWindow::on_editorArchivo_textChanged() {
+    //Establecer el título de la ventana con el nombre del archivo
+    setWindowTitle(tr("*%1: Editor de texto").arg(nombre_archivo));
     archivo_modificado = true;
 }
 
@@ -137,8 +140,9 @@ void MainWindow::on_nuevoArchivo_click(){
 
         archivo_modificado = false;
         ultima_ruta_archivo = "";
+        nombre_archivo = "Sin título";
         ui->pteEditor->setPlainText("");
-        setWindowTitle("Editor de texto");
+        setWindowTitle(tr("%1: Editor de texto").arg(nombre_archivo));
 
         //Volver a activar el componente textchange para el editor
         connect(ui->pteEditor, &QPlainTextEdit::textChanged, this, &MainWindow::on_editorArchivo_textChanged);
@@ -240,7 +244,8 @@ bool MainWindow::guardar_archivo(QString ruta_archivo){
         //Cerrar el archivo
         file.close();
 
-        archivo_modificado = false;
+        setWindowTitle(tr("%1: Editor de texto").arg(nombre_archivo));
+        archivo_modificado = false;        
         return true;
     } else {
         qDebug() << "Error al guardar el archivo.";
@@ -302,10 +307,10 @@ void MainWindow::closeEvent(QCloseEvent *event)
 void MainWindow::cargar_titulo_nombreArchivo(QString ruta_archivo) {
     //Obtener el nombre del archivo y su extensión
     QFileInfo fileInfo(ruta_archivo);
-    QString nombreArchivo = fileInfo.fileName();
+    nombre_archivo = fileInfo.fileName();
 
     //Establecer el título de la ventana con el nombre del archivo
-    setWindowTitle(tr("Editor de texto: %1").arg(nombreArchivo));
+    setWindowTitle(tr("%1: Editor de texto").arg(nombre_archivo));
 }
 
 MainWindow::~MainWindow()

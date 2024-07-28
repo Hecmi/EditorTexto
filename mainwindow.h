@@ -40,6 +40,7 @@ private:
 
     Ui::MainWindow *ui;
     QString ultima_ruta_archivo;
+    QString nombre_archivo;
     int tamanio_texto;
     int incremento_texto;
     bool archivo_modificado;
