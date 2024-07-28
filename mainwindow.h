@@ -33,6 +33,7 @@ private slots:
 
 private:
     bool guardar_archivo(QString ruta);
+    void cargar_titulo_nombreArchivo(QString ruta);
     void zoomIn();
     void zoomOut();
     void updateFontSize();

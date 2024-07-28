@@ -131,9 +131,17 @@ void MainWindow::on_nuevoArchivo_click(){
 
     //Sí puede reiniciar, reestablecer el contenido del editor y la ruta
     if (puede_reiniciar){
+        //Para evitar que se active el evento textchange puesto que se reiniciará el contenido, desconectar
+        //el evento temporalmente
+        disconnect(ui->pteEditor, &QPlainTextEdit::textChanged, this, &MainWindow::on_editorArchivo_textChanged);
+
         archivo_modificado = false;
         ultima_ruta_archivo = "";
         ui->pteEditor->setPlainText("");
+        setWindowTitle("Editor de texto");
+
+        //Volver a activar el componente textchange para el editor
+        connect(ui->pteEditor, &QPlainTextEdit::textChanged, this, &MainWindow::on_editorArchivo_textChanged);
     }
 }
 
@@ -150,6 +158,10 @@ void MainWindow::on_seleccionarArchivo_click() {
 
         //Abrir el archivo en forma de solo lectura
         if (file.open(QIODevice::ReadOnly | QIODevice::Text)) {
+
+            //Desactivar el evento text change hasta que cargue el texto del contenido del archivo seleccionado
+            disconnect(ui->pteEditor, &QPlainTextEdit::textChanged, this, &MainWindow::on_editorArchivo_textChanged);
+
             QTextStream in(&file);
 
             //Guardar le contenido del texto y colocarlo en el widget
@@ -158,6 +170,11 @@ void MainWindow::on_seleccionarArchivo_click() {
 
             //Cerrar el archivo
             file.close();
+
+            cargar_titulo_nombreArchivo(ultima_ruta_archivo);
+
+            //Volver a activar el evento
+            connect(ui->pteEditor, &QPlainTextEdit::textChanged, this, &MainWindow::on_editorArchivo_textChanged);
         }
     } else {
         qDebug() << "No se seleccionó ningún archivo.";
@@ -171,6 +188,7 @@ bool MainWindow::on_guardarComo_click() {
     //Sí se seleccionó una ruta valida, asignarla a la variable para la posterior modificación
     if (!ruta_archivo.isEmpty()) {
         ultima_ruta_archivo = ruta_archivo;
+        cargar_titulo_nombreArchivo(ultima_ruta_archivo);
     } else {
         qDebug() << "No se seleccionó ningún archivo.";
         return false;
@@ -189,6 +207,7 @@ bool MainWindow::on_guardarArchivo_click()
 
         if (!ruta_archivo.isEmpty()) {
             ultima_ruta_archivo = ruta_archivo;
+            cargar_titulo_nombreArchivo(ultima_ruta_archivo);
         } else {
             qDebug() << "No se seleccionó ningún archivo.";
             return false;
@@ -269,6 +288,15 @@ void MainWindow::closeEvent(QCloseEvent *event)
     } else {
         event->accept();
     }
+}
+
+void MainWindow::cargar_titulo_nombreArchivo(QString ruta_archivo) {
+    //Obtener el nombre del archivo y su extensión
+    QFileInfo fileInfo(ruta_archivo);
+    QString nombreArchivo = fileInfo.fileName();
+
+    //Establecer el título de la ventana con el nombre del archivo
+    setWindowTitle(tr("Editor de texto: %1").arg(nombreArchivo));
 }
 
 MainWindow::~MainWindow()
