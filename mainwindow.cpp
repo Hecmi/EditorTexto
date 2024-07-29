@@ -14,6 +14,7 @@ MainWindow::MainWindow(QWidget *parent)
     , archivo_modificado(false)
     , nombre_archivo("Sín título")
 {
+    //Establecer la configuración de la interfaz de usuario y el título de la ventana
     ui->setupUi(this);
     setWindowTitle(tr("%1: Editor de texto").arg(nombre_archivo));
 
@@ -31,7 +32,7 @@ MainWindow::MainWindow(QWidget *parent)
 
     connect(ui->pteEditor, &QPlainTextEdit::textChanged, this, &MainWindow::on_editorArchivo_textChanged);
 
-    //Eventos para combinación de teclas
+    //Eventos para combinación de teclas (atajos)
     QShortcut *shortcut_guardar = new QShortcut(QKeySequence("Ctrl+S"), this);
     QShortcut *shortcut_guardarComo = new QShortcut(QKeySequence("Ctrl+Shift+S"), this);
     QShortcut *shortcut_nuevoArchivo = new QShortcut(QKeySequence("Ctrl+N"), this);
